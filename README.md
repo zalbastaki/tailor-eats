@@ -1,11 +1,6 @@
-# Vue Starter
+# Tailor Eats
 
-This is a vue starter template. Ready for use with:
-- Netlify forms
-- Netlify CMS
-- Google fonts
-- Fontawesome
-- Media queries plugin
+This is the TailorEats website. A fictional company created as part of my design fiction for my Critical Design module during the third year of my BSc in Interactive Media degree.
 
 ## Project setup
 ```
