@@ -4,8 +4,7 @@
             <div class="header">
                 <div class="text-section">
                     <base-text type="h1">
-                        Nutrition tailored to
-                        <span class="uppercase">you.</span>
+                        Nutrition tailored to you.
                     </base-text>
                     <base-text type="p">
                         Hassle free meals tailored to your unique nutritional
@@ -249,10 +248,6 @@
 
                 .text-section {
                     padding-right: 50px;
-
-                    .uppercase {
-                        text-transform: uppercase;
-                    }
 
                     p {
                         font-size: 30px;
