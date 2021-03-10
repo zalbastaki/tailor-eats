@@ -167,7 +167,7 @@
             text-align: center;
 
             p {
-                max-width: 600px;
+                max-width: 700px;
                 margin-top: 20px;
             }
         }
