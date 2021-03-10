@@ -23,21 +23,43 @@
         </section>
 
         <section class="form-section">
-            <div class="input-container">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" />
-            </div>
-            <div class="input-container">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" />
-            </div>
-            <div class="input-container">
-                <label for="message">Message</label>
-                <textarea name="message" id="message" />
-            </div>
-            <base-button type="button" @click="sendMessage">
-                Send Message
-            </base-button>
+            <template v-if="!messageSent">
+                <div class="input-container">
+                    <label for="name">Name</label>
+                    <input v-model="name" type="text" name="name" id="name" />
+                </div>
+                <div class="input-container">
+                    <label for="email">Email</label>
+                    <input
+                        v-model="email"
+                        type="email"
+                        name="email"
+                        id="email"
+                    />
+                </div>
+                <div class="input-container">
+                    <label for="message">Message</label>
+                    <textarea v-model="message" name="message" id="message" />
+                </div>
+                <base-button
+                    type="button"
+                    class="submit-btn"
+                    @click="sendMessage"
+                >
+                    Send Message
+                </base-button>
+            </template>
+            <template v-else>
+                <base-text type="h3">
+                    Thank you for getting in touch!
+                </base-text>
+                <base-text type="p">
+                    We'll get back to you shortly.
+                </base-text>
+                <base-button type="button" width="350px" @click="resetForm">
+                    Send Another Message
+                </base-button>
+            </template>
         </section>
     </div>
 </template>
@@ -51,13 +73,33 @@
                 name: '',
                 email: '',
                 message: '',
-                messageSent: false,
+                messageSent: true,
             };
         },
 
         methods: {
             sendMessage() {
-                this.messageSent === true;
+                if (!this.name) {
+                    alert('You must provide your name.');
+                    return;
+                }
+
+                if (!this.email) {
+                    alert('You must provide your email so we can reach you.');
+                    return;
+                }
+
+                if (!this.validateEmail(this.email)) {
+                    alert('The email you provided is invalid.');
+                    return;
+                }
+
+                if (!this.message) {
+                    alert('You must provide a message.');
+                    return;
+                }
+
+                this.messageSent = false;
             },
 
             resetForm() {
@@ -65,6 +107,11 @@
                 this.email = '';
                 this.message = '';
                 this.messageSent = false;
+            },
+
+            validateEmail(email) {
+                const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(String(email).toLowerCase());
             },
         },
     };
@@ -145,7 +192,21 @@
             }
 
             .button {
-                align-self: flex-end;
+                align-self: center;
+
+                &.submit-btn {
+                    align-self: flex-end;
+                }
+            }
+
+            h3 {
+                margin-bottom: 15px;
+                align-self: center;
+            }
+
+            p {
+                margin-bottom: 60px;
+                align-self: center;
             }
         }
     }
