@@ -1,12 +1,13 @@
 <template>
     <section class="text-img-section" :class="order === 1 ? 'reverse' : ''">
         <div class="text-section">
-            <base-text type="h2">
+            <base-text v-if="title" type="h2">
                 {{ title }}
             </base-text>
-            <base-text type="p">
+            <base-text v-if="description" type="p">
                 {{ description }}
             </base-text>
+            <slot name="text" />
             <div v-if="callToAction" class="call-to-action">
                 <base-button
                     type="router-link"
@@ -17,7 +18,7 @@
                 </base-button>
             </div>
         </div>
-        <slot />
+        <slot name="img" />
     </section>
 </template>
 
@@ -36,12 +37,18 @@
 
             title: {
                 type: String,
-                required: true,
+                required: false,
+                default() {
+                    return null;
+                },
             },
 
             description: {
                 type: String,
-                required: true,
+                required: false,
+                default() {
+                    return null;
+                },
             },
 
             callToAction: {

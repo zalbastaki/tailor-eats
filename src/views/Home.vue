@@ -86,24 +86,26 @@
             :description="section.description"
             :call-to-action="section.callToAction"
         >
-            <img
-                v-if="index === 0"
-                src="@/assets/images/home/chip-img.jpeg"
-                alt="illustration"
-                class="img"
-            />
-            <img
-                v-if="index === 1"
-                src="@/assets/images/home/know-yourself-img.png"
-                alt="illustration"
-                class="img"
-            />
-            <img
-                v-if="index === 2"
-                src="@/assets/images/home/feel-good-img.png"
-                alt="illustration"
-                class="img"
-            />
+            <template v-slot:img>
+                <img
+                    v-if="index === 0"
+                    src="@/assets/images/chip-img.jpeg"
+                    alt="illustration"
+                    class="img"
+                />
+                <img
+                    v-if="index === 1"
+                    src="@/assets/images/home/know-yourself-img.png"
+                    alt="illustration"
+                    class="img"
+                />
+                <img
+                    v-if="index === 2"
+                    src="@/assets/images/home/feel-good-img.png"
+                    alt="illustration"
+                    class="img"
+                />
+            </template>
         </text-img-section>
 
         <section class="email-section">
@@ -288,7 +290,7 @@
         }
 
         .steps-section {
-            padding: $section-bottom-padding 0;
+            padding: $section-padding 0;
             text-align: center;
 
             .steps {
@@ -311,7 +313,7 @@
         }
 
         .email-section {
-            padding: $section-bottom-padding 0;
+            padding: $section-padding 0;
             text-align: center;
 
             h2 {
