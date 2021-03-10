@@ -2,7 +2,7 @@
     <footer class="main-footer-wrapper">
         <div class="main-footer">
             <p class="note">
-                This is a design fiction created for illustrative purposes only.
+                © TailorEats
             </p>
         </div>
     </footer>
@@ -23,8 +23,9 @@
         .main-footer {
             max-width: $site-width;
             margin: auto;
+            padding: 0 $site-side-padding;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             position: absolute;
             left: 0;

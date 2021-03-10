@@ -27,12 +27,12 @@
     }
 
     .h1 {
-        font-size: 60px;
+        font-size: 100px;
         font-weight: bold;
     }
 
     .h2 {
-        font-size: 25px;
+        font-size: 50px;
     }
 
     .h3 {
@@ -44,6 +44,7 @@
     }
 
     .p {
+        font-size: 20px;
         line-height: 1.5;
     }
 </style>

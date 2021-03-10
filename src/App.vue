@@ -25,6 +25,10 @@
 </script>
 
 <style lang="scss">
+    html {
+        scroll-behavior: smooth;
+    }
+
     body {
         margin: 0;
     }
