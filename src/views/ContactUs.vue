@@ -73,7 +73,7 @@
                 name: '',
                 email: '',
                 message: '',
-                messageSent: true,
+                messageSent: false,
             };
         },
 
